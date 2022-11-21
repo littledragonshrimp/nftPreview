@@ -1,0 +1,171 @@
+$mainBG: hsl(217, 54%, 11%);
+$cardBG: hsl(216, 50%, 16%);
+$line: hsl(215, 32%, 27%);
+$white: hsl(0, 0%, 100%);
+
+$softBlue: hsl(215, 51%, 70%);
+$cyan: hsl(178, 100%, 50%);
+
+
+a:link, a:visited, a:hover, a:active { 
+    text-decoration: none; 
+}
+
+
+body {
+    font-family: "outfit", sans-serif;
+    background-color: $mainBG;
+    color: red;
+    font-size: 18px;
+}
+
+main{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 25%;
+    min-width: 325px;
+
+    background-color: $cardBG;
+
+    border-radius: 8px;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+
+    margin: auto;
+}
+
+.card-image{
+    width: 90%;
+    border-radius: 8px;
+    padding: 0;
+}
+
+.card-image:hover .overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $cyan;
+    border-radius: 10px;
+}
+
+.card-image:hover .overlay {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+.card-image:hover .overlay + .overlay-eye {
+    display: block;
+    width: 90%;
+  }
+
+.overlay{
+    position: absolute;
+    
+}
+
+.overlay-eye{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+}
+
+
+.card-title, .card-description{
+    width: 90%;
+    margin-right: auto;
+    margin-left: 5%;
+    font-weight: 300;
+    color:$white;
+}
+
+.card-title:hover{
+    color: $cyan;
+}
+
+.card-description {
+    color: $softBlue;
+    font-size: 20px;
+}
+
+.card-container1{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 7%;
+    margin-bottom: 3%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left-1 {
+    display: inline-block;
+    color: $cyan;
+    margin-left: auto;
+    margin-right: 3.5em;
+}
+.right-1 {
+    display: inline-block;
+   
+    color: $softBlue;
+    margin-right: auto;
+    margin-left: 3.5em;
+    
+}
+.line1 hr{
+    border: 1px solid red;
+    border-width: 100%;
+}
+
+.card-container2{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.left-2 img{
+    
+    max-width: 30%;
+    border: 1px solid $white;
+    border-radius: 25px;
+}
+
+.right-2{
+    margin-left: -20%;
+    color: $softBlue;
+    font-weight: 300;
+}
+
+
+
+.author, a.author {
+    text-decoration: none;
+    font-weight: 500;
+    color: $white;
+}
+
+.author:hover a{
+    text-decoration: none;
+    color: $cyan;
+}
