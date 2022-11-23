@@ -31,45 +31,42 @@ main {
   margin: auto;
 }
 
-.card-image {
-  width: 90%;
-  border-radius: 8px;
-  padding: 0;
-}
-
-.card-image:hover .overlay {
+.overlay-eye { /* This shows first BEFORE .hovered, all you have to do is set it in the place you want, display: none; then in the hovered version, display: unset to make it visible when hovered*/
+  width: 4%;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  background-color: hsl(178deg, 100%, 50%);
-  border-radius: 10px;
-}
-
-.card-image:hover .overlay {
-  opacity: 0.5;
-  cursor: pointer;
-}
-
-.card-image:hover .overlay + .overlay-eye {
-  display: block;
-  width: 90%;
-}
-
-.overlay {
-  position: absolute;
-}
-
-.overlay-eye {
-  position: absolute;
-  top: 50%;
+  top: 23vh;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   display: none;
+}
+
+#card-image {
+  width: 90%;
+  border-radius: 8px;
+  margin-left: 5%;
+  margin-top: 2%;
+}
+
+.hovered {
+  cursor: pointer;
+}
+.hovered:hover .overlay {
+  position: absolute;
+  top: 3%;
+  right: 27vh;
+  width: 42%;
+  height: 39%;
+  opacity: 0.5;
+  background-color: hsl(178deg, 100%, 50%);
+  border-radius: 10px;
+}
+.hovered:hover .overlay-eye {
+  display: unset;
+}
+
+.overlay {
+  position: absolute;
 }
 
 .card-title, .card-description {
@@ -82,6 +79,7 @@ main {
 
 .card-title:hover {
   color: hsl(178deg, 100%, 50%);
+  cursor: pointer;
 }
 
 .card-description {
@@ -90,33 +88,39 @@ main {
 }
 
 .card-container1 {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  margin-top: 7%;
-  margin-bottom: 3%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin-top: 1.5em;
 }
 
 .left-1 {
+  float: left;
+  margin-left: 2vh;
+  /* When using Display: inline-block; 
   display: inline-block;
+  white-space: nowrap;
+
+  margin-left: 4%;
+  margin-right: 13%;
+  */
   color: hsl(178deg, 100%, 50%);
-  margin-left: auto;
-  margin-right: 3.5em;
 }
 
 .right-1 {
+  float: right;
+  margin-right: 2vh;
+  /*
   display: inline-block;
+  white-space: nowrap;
+
+  margin-left: 13%;
+  margin-right: 4%;
+  */
   color: hsl(215deg, 51%, 70%);
-  margin-right: auto;
-  margin-left: 3.5em;
 }
 
-.line1 hr {
-  border: 1px solid red;
-  border-width: 100%;
+hr.line-1 {
+  border: 1px solid hsl(215deg, 32%, 27%);
+  width: 90%;
 }
 
 .card-container2 {
@@ -135,12 +139,12 @@ main {
 .right-2 {
   margin-left: -20%;
   color: hsl(215deg, 51%, 70%);
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .author, a.author {
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 300;
   color: hsl(0deg, 0%, 100%);
 }
 
