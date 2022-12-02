@@ -13,13 +13,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   width: 25%;
   min-width: 325px;
   background-color: hsl(216deg, 50%, 16%);
@@ -50,26 +47,33 @@ main {
 }
 
 .hovered {
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
 }
-.hovered:hover .overlay {
+
+.hovered::after:hover {
+  content: url(images/icon-ethereum.svg);
+  background: hsl(178deg, 100%, 50%);
   position: absolute;
-  top: 3%;
-  right: 27vh;
-  width: 42%;
-  height: 39%;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0.5;
-  background-color: hsl(178deg, 100%, 50%);
-  border-radius: 10px;
-}
-.hovered:hover .overlay-eye {
-  display: unset;
 }
 
-.overlay {
-  position: absolute;
+/*
+.overlay-eye img{
+    display: block;
+    position: absolute;
+    top: 0;
+    &:hover{
+        display:block;
+        position: absolute;
+    }      
 }
-
+*/
 .card-title, .card-description {
   width: 90%;
   margin-right: auto;
@@ -81,6 +85,7 @@ main {
 .card-title:hover {
   color: hsl(178deg, 100%, 50%);
   cursor: pointer;
+  transition: 0.4s;
 }
 
 .card-description {
@@ -91,6 +96,7 @@ main {
 .card-container1 {
   width: 100%;
   margin-top: 1.5em;
+  margin-bottom: 2em;
 }
 
 .left-1 {
@@ -120,6 +126,7 @@ main {
 }
 
 hr.line-1 {
+  margin-top: 3.5em;
   border: 1px solid hsl(215deg, 32%, 27%);
   width: 90%;
 }
@@ -129,9 +136,12 @@ hr.line-1 {
   justify-content: start;
   align-items: center;
   flex-direction: row;
+  margin-bottom: 2%;
 }
 
 .left-2 img {
+  float: left;
+  margin-left: 5%;
   max-width: 30%;
   border: 1px solid hsl(0deg, 0%, 100%);
   border-radius: 25px;
@@ -148,8 +158,14 @@ hr.line-1 {
   font-weight: 300;
   color: hsl(0deg, 0%, 100%);
 }
-
-.author:hover a {
-  text-decoration: none;
+.author:hover, a.author:hover {
   color: hsl(178deg, 100%, 50%);
+  transition: 0.3s;
+}
+
+.attribution {
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  color: white;
 }/*# sourceMappingURL=styles.css.map */

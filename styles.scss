@@ -23,14 +23,11 @@ main{
    display: flex;
    justify-content: center;
    align-items: center;
+   flex-direction: column;
 }
 
 .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
+  
     width: 25%;
     min-width: 325px;
 
@@ -81,28 +78,33 @@ main{
 }
 
 .hovered{
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
-
-    &:hover {
-           .overlay{
+    }
+    
+.hovered::after:hover{
+            content:url(images/icon-ethereum.svg);
+            background: $cyan;
             position: absolute;
-            top: 3%;
-            right: 27vh;
-            width: 42%;
-            height: 39%;
-            opacity: 0.5;
-            background-color: $cyan;
-            border-radius: 10px;
-            }
-            .overlay-eye{
-                display: unset;
-            }
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: .5;
 }
-}
-           
-.overlay{
+/*
+.overlay-eye img{
+    display: block;
     position: absolute;
+    top: 0;
+    &:hover{
+        display:block;
+        position: absolute;
+    }      
 }
+*/
+
 
 
 .card-title, .card-description{
@@ -116,6 +118,7 @@ main{
 .card-title:hover{
     color: $cyan;
     cursor: pointer;
+    transition: .4s;
 }
 
 .card-description {
@@ -126,6 +129,7 @@ main{
 .card-container1{
     width: 100%;
     margin-top: 1.5em;
+    margin-bottom: 2em;
 }
 
 .left-1 {
@@ -155,8 +159,8 @@ main{
     
 }
 hr.line-1{
+    margin-top: 3.5em;
     border: 1px solid $line;
-  
     width: 90%;
 }
 
@@ -165,10 +169,12 @@ hr.line-1{
     justify-content: start;
     align-items: center;
     flex-direction: row;
+    margin-bottom: 2%;
 }
 
 .left-2 img{
-    
+    float: left;
+    margin-left: 5%;
     max-width: 30%;
     border: 1px solid $white;
     border-radius: 25px;
@@ -186,9 +192,17 @@ hr.line-1{
     text-decoration: none;
     font-weight: 300;
     color: $white;
+    &:hover{
+        color: $cyan;
+        transition: .3s;
+    }
 }
 
-.author:hover a{
-    text-decoration: none;
-    color: $cyan;
+
+
+.attribution{
+    display: block;
+    position: absolute;
+    bottom: 10%;
+    color: white;
 }
