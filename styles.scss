@@ -40,19 +40,11 @@ main{
     padding-bottom: 1%;
 
     margin: auto;
-}
+        
+    }
 
 
 
-.overlay-eye{ /* This shows first BEFORE .hovered, all you have to do is set it in the place you want, display: none; then in the hovered version, display: unset to make it visible when hovered*/
-    width: 4%;
-    position: absolute;
-    top: 23vh;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    display: none;
-}
 
 // // 
 // .hovered{ /* parent */
@@ -69,7 +61,6 @@ main{
 // */
 
 #card-image {
-    
     width: 90%;
     border-radius: 8px;
     margin-left: 5%;
@@ -77,33 +68,52 @@ main{
     margin-top: 2%;
 }
 
+/*1. Wrap in an anchor tag (or button depending on what you would expect clicking on it to do) that’s display block and position relative. Give it an aria label
+2. Have your image inside that also set to display block max width 100%. Make it have an empty alt
+3. Add a before and after pseudo element to the anchor tag, absolutely positioned and 100% width and height and content as an empty string
+4. Make one pseudo background color teal
+5. Make the other background image with the eye image. Use background properties to size and position it
+6. Set both to have opacity 0 by default
+7. On hover of the anchor make the pseudo with teal color opacity 0.7ish, make the pseudo with the eye opacity 0.*/
+
+The etherium image inside an anchor element
+Anchor position relative
+Before background cyan
+After background image eye
+
+
 .hovered{
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    }
-    
-.hovered::after:hover{
-            content:url(images/icon-ethereum.svg);
-            background: $cyan;
-            position: absolute;
-            inset: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: .5;
-}
-/*
-.overlay-eye img{
     display: block;
-    position: absolute;
-    top: 0;
-    &:hover{
-        display:block;
-        position: absolute;
-    }      
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &::before{
+        position: absolute;  
+        width: 100%;
+        height: 100%;
+    }
+    &::after{
+        background-image: url('images/icon-view.svg')
+    }
 }
-*/
+
+.hovered:hover{
+    &::before{
+        display: block;
+        position: relative;
+    }
+    &::after{
+        display: block;
+        width: 30%;
+        position: absolute;
+        background: $cyan;
+        opacity: 0.7;
+        transition: .7s;
+        width: 100%;
+        height: 100%;
+        display: unset;
+    }
+}
 
 
 
@@ -135,25 +145,11 @@ main{
 .left-1 {
     float:left;
     margin-left: 2vh;
-    /* When using Display: inline-block; 
-    display: inline-block;
-    white-space: nowrap;
-
-    margin-left: 4%;
-    margin-right: 13%;
-    */
     color: $cyan;
 }
 .right-1 {
     float: right;
     margin-right: 2vh;
-    /*
-    display: inline-block;
-    white-space: nowrap;
-
-    margin-left: 13%;
-    margin-right: 4%;
-    */
     color: $softBlue;
 
     
